@@ -1,0 +1,19 @@
+<!-- events/templates/events/event_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}活動列表{% endblock %}
+
+{% block content %}
+    <h1>活動列表</h1>
+    <ul>
+        {% for event in events %}
+            <li>
+                <a href="{% url 'event_detail' event.id %}">{{ event.name }}</a> - {{ event.event_time }}
+                
+                <p>你可以點擊查看活動詳細資訊並進行報名。</p>
+            </li>
+        {% empty %}
+            <li>目前沒有活動。</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
